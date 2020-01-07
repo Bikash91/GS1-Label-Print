@@ -1,0 +1,51 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form"
+	controllerName="com.sap.upl.GSLabelPrint.controller.GSPrint" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="{i18n>title}" busy="{settingsModel>/busy}" showHeader="false">
+		<content>
+			<VBox width="100%">
+				<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="3" labelSpanS="12"
+					adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1"
+					singleContainerFullSize="false" id="idGs">
+					<f:content>
+						<Label text="{i18n>warehouse}" design="Bold" required="true"/>
+						<ComboBox items="{/GetWareHouseSet}" placeholder="{i18n>warehouse}" id="warehouse" change="onWareHouseChange">
+							<core:Item key="{Warehouse}" text="{Warehouse}"/>
+						</ComboBox>
+						<!--<Input id="warehouse" name="warehouse" required="true" maxLength="4" value="{gsModel>/Plant}" placeholder="{i18n>warehouse}" change="onCheckAllField"/>-->
+						<Label text="{i18n>itemCode}" design="Bold" required="true"/>
+						<Input id="ItemCode" name="ItemCode" required="true" maxLength="18" value="{gsModel>/Material}" placeholder="{i18n>itemCode}"
+							change="onCheckAllField"/>
+						<Label text="{i18n>batch}" design="Bold"/>
+						<Input id="LotNumber" value="{gsModel>/Batch}" maxLength="10" name="LotNumber" placeholder="{i18n>batch}" change="onCheckAllField"
+							visible="{settingsModel>/showbatch}"/>
+						<Label text="{i18n>quantityPerLabel}" design="Bold" required="true"/>
+						<Input id="QuantityPerLabel" value="{gsModel>/Quantity}" required="true" maxLength="13" name="QuantityPerLabel"
+							placeholder="{i18n>quantityPerLabel}" change="onCheckAllField"/>
+						<Label text="{i18n>noOfLabel}" design="Bold" required="true"/>
+						<Input id="NoOfLabel" value="{gsModel>/Nooflabel}" required="true" name="NoOfLabel" maxLength="3" placeholder="{i18n>noOfLabel}"
+							change="onCheckAllField"/>
+						<Label text="{i18n>manufacturingDate}" design="Bold" required="true"/>
+						<DatePicker id="manFactureDate" change="onChangeManufacturingDate" required="true"
+							value="{path:'gsModel>/Date', type:'sap.ui.model.type.Date', formatOptions: { style: 'short'}}" displayFormat="dd.MM.yyyy"
+							valueFormat="dd.MM.yyyy"/>
+						<Label text="{i18n>outputDevice}" design="Bold" required="true"/>
+						<!--<ComboBox items="{/GetWareHouseSet}" placeholder="{i18n>warehouse}" id="outputDevice" change="onWareHouseChange"
+							visible="{settingsModel>/outputVisible}">
+							<core:Item key="{Warehouse}" text="{Warehouse}"/>
+						</ComboBox>-->
+						<Select name="outputDevice" id="outputDevice" items="{ path: 'printerModel>/results'}" change="labelPrint"
+							visible="{settingsModel>/outputVisible}">
+							<core:Item key="{printerModel>PRINTER}" text="{printerModel>PRINTER}"/>
+						</Select>
+					</f:content>
+				</f:SimpleForm>
+			</VBox>
+		</content>
+		<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button text="{i18n>printLabel}" tooltip="{i18n>printLabel}" press="onPressPrint" icon="sap-icon://print" type="Emphasized"/>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

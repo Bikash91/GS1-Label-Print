@@ -1,0 +1,22 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:sap="http://www.sap.com/Protocols/SAPData"
+	xmlns:ux="http://www.sap.com/Protocols/OData4SAP/UX" xmlns:gp="http://www.sap.com/Protocols/SAPData/GenericPlayer" Version="1.0">
+	<edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZWMS_UPL_QR_LABEL_GS1_SRV" sap:schema-version="1" xml:lang="en">
+			<EntityType Name="QRCode" sap:content-version="1">
+				<Key><PropertyRef Name="Material"/><PropertyRef Name="Quantity"/><PropertyRef Name="Batch"/><PropertyRef Name="Nooflabel"/><PropertyRef Name="Plant"/></Key><Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="18" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false" sap:label="Material"/><Property Name="Quantity" Type="Edm.String" Nullable="false" MaxLength="10" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false" sap:label="Quantity"/><Property Name="Message" Type="Edm.String" Nullable="false" MaxLength="255" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false" sap:label="Message"/><Property Name="Text" Type="Edm.String" Nullable="false" MaxLength="40" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false" sap:label="Description"/><Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="1" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false" sap:label="Type"/><Property Name="Batch" Type="Edm.String" Nullable="false" MaxLength="10" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false" sap:label="Batch"/><Property Name="Indicator" Type="Edm.String" Nullable="false" MaxLength="10" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false" sap:label="Indicator"/><Property Name="Date" Type="Edm.DateTime" Nullable="false" Precision="7" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false" sap:label="Date of Manuf."/><Property Name="Nooflabel" Type="Edm.String" Nullable="false" MaxLength="3" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false" sap:label="No Of Label"/><Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false" sap:label="Plant"/></EntityType>
+			<EntityContainer Name="ZWMS_UPL_QR_LABEL_GS1_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="QRCodeSet" EntityType="ZWMS_UPL_QR_LABEL_GS1_SRV.QRCode" sap:content-version="1" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:pageable="false"/></EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self"
+				href="https://gwaas-ae7888026.hana.ondemand.com:443/odata/SAP/ZWMS_UPL_QR_LABEL_GS1_SRV;v=1/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version"
+				href="https://gwaas-ae7888026.hana.ondemand.com:443/odata/SAP/ZWMS_UPL_QR_LABEL_GS1_SRV;v=1/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
